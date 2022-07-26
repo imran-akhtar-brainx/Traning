@@ -1,45 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-	<style>
-    
-    .div-3 {
-    	border-style: solid;
-    	background-color: gray;
-    	height: 40px;
-    }
-    #main{
- 	margin-left: 25%; 
- 	margin-right: 25%;
-    background-color:white; 
-    border: solid 1px; 
-    color:red; 
-    padding:20px;
-    }
-
-
-    #education{
- 		width:200px;   
-	}
-	#country{
- 		width:435px;   
-	}
-
-.submit{
-  margin: 0;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-.container { 
-  height: 20px;
-  position: relative;
-}
-</style>
-
+ <link rel="stylesheet" href="mystyle.css">
 </head>
 
 <body>
@@ -47,13 +9,13 @@
     	<div class="div-3"> </div>
 
   <h1 align="center">Job Application</h1>
-  <h3>Personal Information</h3>
+  <span style="color: red;">Personal Information</span><br><br>
   
   	<form>
   	  
-  		<a>Name</a>
-  			<input type="text" id="fname" name="fname" value="" style="display:inline-block;margin-left:25%;">
-  			<input type="text" id="lname" name="lname" value=""><br>
+  		<span class="side-bar-list">Name</span>
+  			<input type="text" id="fname" name="fname" value="" size="19"  style="border-radius: 3px; display:inline-block;margin-left:25px;">
+  			<input type="text" id="lname" name="lname" value="" size="19" style="border-radius: 3px"><br>
   			<label for="fname" style="margin-left: 33%">First name:</label>
   			<label for="lname" style="margin-left: 16% ">Last name:</label>
 
@@ -62,16 +24,16 @@
 
 
   			
-  			<label for="emails">Email</label>
-  			<input type="email" id="emails" name="emails" multiple  size="48" style="margin-left: 25%" >
+  			<label class="side-bar-list" for="emails">Email</label>
+  			<input class="input-field" type="email" id="emails" name="emails" multiple style="border-radius: 3px; margin-left: 25px" >
 
   			<br>
   			<br>
 
 
 
-  			<label for="education">Education</label>
-  			<select name="education" id="education"  style="margin-left: 160px">
+  			<label class="side-bar-list" for="education">Education</label>
+  			<select class="input-field" name="education" id="education"  style="margin-left: 25px">
     		<option value="Pakistan">Please Choose</option>
     		<option value="bs">BS</option>
     		<option value="ms">MS</option>
@@ -81,72 +43,72 @@
 			<br>
   			<br>
 
-  			<label for="myfile">Select a file:</label>
-  			<input type="file" id="myfile" name="myfile" style="margin-left: 144px">
+  			<label class="side-bar-list" for="myfile">Select a file:</label>
+  			<input class="input-field" type="file" id="myfile" name="myfile" style="border-radius: 3px; margin-left: 25px">
   	
   			<br>
   			<br>
 
-			<a>Address</a>
-			<input type="text" id="fname" name="fname" value="" size="48" style="margin-left: 180px"><br>
-  			<label for="fname" style="margin-left: 400px; margin-top:50px">Address 1</label><br>
-  			<input type="text" id="lname" name="lname" value="" size="48" style="margin-left: 250px"><br>
+			<span class="side-bar-list">Address</span>
+			<input class="input-field" type="text" id="fname" name="fname" value="" style="border-radius: 3px; margin-left: 25px"><br>
+  			<lab300 for="fname" style="margin-left: 400px; margin-top:50px">Address 1</label><br>
+  			<input  class="input-field" type="text" id="lname" name="lname" value="" style="border-radius: 3px; margin-left: 250px"><br>
   			<label for="lname" style="margin-left: 400px">Address 2</label>
   			<br>
 
   		
-  			<select name= "country" id="country" style="margin-left: 250px">
-    			<option value="selt">Select a Country</option>
+  			<select class="input-field"  name= "country" id="country" style="margin-left: 250px">
+    		<option value="selt">Select a Country</option>
 				<option value="Afghanistan">Afghanistan</option>
 				<option value="Algeria">Algeria</option>
 				<option value="American Samoa">American Samoa</option>
 				<option value="Andorra">Andorra</option>
 			</select>
-			<p style="margin-left: 400px">Country</p>
+			<span style="margin-left: 400px">Country</span>
 
 
 
-			 <input type="text" id="city" name="city" value="" size="20" style="margin-left: 250px" >
-			 <input type="text" id="stale" name="stale" value="" size="4">
-			 <input type="text" id="code" name="code" value="" size="10"><br>
+			 <input type="text" id="city" name="city" value="" size="18" style="border-radius: 3px; margin-left: 250px" >
+			 <input type="text" id="stale" name="stale" value="" size="3" style="border-radius: 3px">
+			 <input type="text" id="code" name="code" value="" size="10" style="border-radius: 3px"><br>
   			 <label for="city" style="margin-left: 300px">City</label>
   			 <label for="stale" style="margin-left: 135px">stale</label>
   			 <label for="code" style="margin-left: 70px">Ap Code</label><br>
   			 <br>
 
-  			 <label for="phone">Enter your phone number:</label>
-  			 <input type="tel" id="phone" name="phone" size="5" pattern="[0-9]{3}" style="margin-left: 30px">
-  			 <input type="tel" id="phone" name="phone" size="36" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+  			 <label class="side-bar-list" for="phone">Enter your phone number:</label>
+  			 <input type="tel" id="phone" name="phone" size="3" pattern="[0-9]{3}" style="border-radius: 3px; margin-left: 25px">
+  			 <input type="tel" id="phone" name="phone" size="35" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" style="border-radius: 3px; margin-left:3px">
   			 <br>
   			 <br>
   			 <label for="hobbies">What are your hobbies?</label>
   			 <br>
-  			 <input type="text" id="hobbies" name="hobbies" value="" size="80" ">
+  			 <input type="text" id="hobbies" name="hobbies" value="" size="77" " style="margin-left: 3px; border-radius: 3px;">
   		
 
   		
-  			<h2>Precious/Current Employment Details</h2>
-  			<label for="company-name">Company Name</label>
-  			<input type="text" name="company-name" id="company-name"  size="50" style="margin-left: 100px"><br><br>
-  			<label for="job">Job Title</label>
-  			<input type="text" name="job" id="job" size="50" style="margin-left: 160px"><br><br>
-  			<label for="timeperiod">How long were you here?</label>
-  			<input type="text" name="timeperiod" id="timeperiod" size="50" style="margin-left: 20px"><br><br>
+  			<h2 style="color:red;">Precious/Current Employment Details</h2>
+  			<label class="side-bar-list" for="company-name">Company Name</label>
+  			<input class="input-field" type="text" name="company-name" id="company-name"  size="50" style="margin-left: 25px"><br><br>
+  			<label class="side-bar-list" for="job">Job Title</label>
+  			<input class="input-field"type="text" name="job" id="job"  style="margin-left: 25px"><br><br>
+  			<label class="side-bar-list" for="timeperiod">How long were you here?</label>
+  			<input class="input-field" type="text" name="timeperiod" id="timeperiod" size="50" style="margin-left: 25px"><br><br>
 
-  			<h2>Reference #1</h2>
-  			<label for="name">Name</label>
-  			<input type="text" name="name" id="name" size="50" style="margin-left: 180px"><br><br>
-  			<label for="phone">Phone</label>
-  			<input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" size="50" style="margin-left: 175px"><br><br>
+  			<h2 style="color:red">Reference #1</h2>
+  			<label class="side-bar-list" for="name">Name</label>
+  			<input class="input-field" type="text" name="name" id="name" style="margin-left: 25px"><br><br>
+  			<label class="side-bar-list" for="phone">Phone</label>
+  			<input class="input-field" type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" size="50" style="margin-left: 25px"><br><br>
 
-  			<h2>Reference #1</h2>
-  			<label for="name">Name</label>
-  			<input type="text" name="name" id="name" size="50" style="margin-left: 180px"><br><br>
-  			<label for="phone">Phone</label>
-  			<input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" size="50" style="margin-left: 175px"><br><br>
+  			<h2 style="color:red">Reference #1</h2>
+  			<label class="side-bar-list" for="name">Name</label>
+  			<input class="input-field" type="text" name="name" id="name" style="margin-left: 25px"><br><br>
+  			<label class="side-bar-list" for="phone">Phone</label>
+  			<input class="input-field" type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" size="50" style="margin-left: 25px"><br><br>
   		
   		<div class="container">
-  			<input class="submit" type="submit" value="Submit">
+  			<input class="submit" type="submit" value="Submit" style="background-color: hsl(0, 27%, 50%);">
   		</div>
   	</form>
   </div>

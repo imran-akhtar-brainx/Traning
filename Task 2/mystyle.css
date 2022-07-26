@@ -1,0 +1,63 @@
+body{
+  background-color: white;
+}
+
+
+.side-bar-list{
+        display: inline-block;
+        width: 220px;
+    }
+
+.div-3 {
+  border-style: solid;
+  background-color: hsl(0, 27%, 50%);
+  height: 40px;
+}
+#main{
+ 	margin-left: 25%; 
+ 	margin-right: 25%;
+  background-color:white; 
+  border-style: outset; 
+  color:black; 
+  padding:20px;
+}
+
+
+.input-field{
+  width: 400px;
+}
+
+.history{
+  border-radius: 3px;
+}
+
+#myfile{
+  border: solid 1px black;
+  width:400px;
+  border-radius: 5px;
+}
+
+#education{
+ 	width:200px;
+  border-radius: 5px;
+}
+	
+#country{
+ 	width:400px;
+  border-radius: 5px;   
+}
+
+.submit{
+  margin: 0;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.container { 
+  border-radius: 5px;
+  height: 20px;
+  position: relative;
+}
