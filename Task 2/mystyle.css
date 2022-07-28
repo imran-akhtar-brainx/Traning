@@ -8,6 +8,11 @@ body{
         width: 220px;
     }
 
+.input-field{
+  max-width: 400px;
+  margin: auto;
+}
+
 .div-3 {
   border-style: solid;
   background-color: hsl(0, 27%, 50%);
@@ -20,12 +25,13 @@ body{
   border-style: outset; 
   color:black; 
   padding:20px;
+  outline-style: solid;
+  outline-color: red;
+  outline-width: thin;
 }
 
 
-.input-field{
-  width: 400px;
-}
+
 
 .history{
   border-radius: 3px;
