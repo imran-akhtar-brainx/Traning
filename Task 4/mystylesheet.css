@@ -1,0 +1,19 @@
+.product-value-props-sub {
+    width: 100%;
+    text-align: center!important;
+    text-transform: uppercase;
+    border-left: 0.5px solid var(--color-border,#e8e9eb);
+    border-right: 0.5px solid var(--color-border,#e8e9eb);
+    border-top: 2px solid var(--color-border,#e8e9eb);
+    border-bottom: 2px solid var(--color-border,#e8e9eb);
+    padding-bottom: 22px;
+    color: white;
+}
+
+.product-value-props {
+    margin-top: 55px;
+    background-color: #003663!important;
+}
+/* .img-up{
+    top: -100px;
+} */
