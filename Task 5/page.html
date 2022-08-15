@@ -10,26 +10,29 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
     crossorigin="anonymous"
   />
+  <link rel="stylesheet" href="styleSheet.css">
     <script src="myScript.js"></script>
     <title>Document</title>
   </head>
-  <body>
-    <div class="container">
-
+  <body class="bg-info">
+    <div class="container mt-5 bg-white">
         <h2>Registeration form</h2>
-        <form name="myForm" class="was-validated" onsubmit="validateForm()" >
-          <div class="mb-3 mt-3">
-            <label for="fname">First Name</label>
+        <form name="myForm" id="signup" >
+          <div class="mb-3 mt-3 form-field error">
+            <label for="f-name">First Name</label>
             <input
               type="text"
               class="form-control"
               id="f-name"
               placeholder="Enter Username"
-              name="name"
+              name="f-name"
+              autocomplete="off"
               required
+              onkeyup="validateName('firstName')"
             />
+            <small id="f-message"></small>
           </div>
-          <div class="mb-3">
+          <div class="mb-3 form-field error">
             <label for="l-name">Last Name</label>
             <input
               type="text"
@@ -37,20 +40,28 @@
               id="l-name"
               placeholder="Enter Lastname"
               name="l-name"
+              autocomplete="off"
+              required
+              onkeyup="validateName('lastName')"
             />
+            <small id="l-message"></small>
           </div>
-          <div class="mb-3 mt-3">
+          <div class="mb-3 mt-3 form-field error">
             <label for="email">Notification Emails:</label>
             <input
-              type="email"
+              type="text"
               class="form-control"
               id="email"
               placeholder="Enter @Email/s"
               name="email"
+              autocomplete="off"
+              required
+              onkeyup="validateEmail()"
             />
+            <small id="email-message"></small>
           </div>
     
-          <div class="mb-3 mt-3">
+          <div class="mb-3 mt-3 form-field error">
             <label for="age">Age:</label>
             <input
               type="number"
@@ -58,42 +69,56 @@
               id="age"
               placeholder="Age"
               name="age"
+              autocomplete="off"
+              required
+              onkeyup="validateAge()"
             />
+            <small id="age-message"></small>
           </div>
     
-          <div class="mb-3 mt-3">
+          <div class="mb-3 mt-3 form-field error">
             <label for="contact">Contact No:</label>
             <input
-              type="number"
+              type="text"
               class="form-control"
               id="contact"
               placeholder="03------"
               name="contact"
+              autocomplete="off"
+              required
+              onkeyup="validateContact()"
             />
+            <small id="contact-message"></small>
           </div>
     
-          <div class="mb-3">
+          <div class="mb-3 form-field error">
             <label for="pwd">Password:</label>
             <input
               type="password"
               class="form-control"
               id="pwd"
               placeholder="Enter password"
-              name="pswd"
+              name="pwd"
+              required
+              onkeyup="validatePassword()"
             />
+            <small id="pwd-message"></small>
           </div>
     
-          <div class="mb-3">
-            <label for="pwd">Password:</label>
+          <div class="mb-3 form-field error">
+            <label for="conferm-pwd">Conferm-Password:</label>
             <input
               type="password"
               class="form-control"
-              id="pwd"
-              placeholder="Enter password"
-              name="pswd"
+              id="cfrn-pwd"
+              placeholder="Re-Enter password"
+              name="cfrn-pswd"
+              required
+              onkeyup="validatePasswordConferm()"
             />
+            <small id="conferm-message"></small>
           </div>
-          <button type="submit" class="btn btn-primary text-center">Submit</button>
+          <button type="submit" value="Sign Up" class="btn btn-primary text-center" style="margin-left:47%;" onclick="validateForm()">Submit</button>
         </form>
     </div>
   </body>
