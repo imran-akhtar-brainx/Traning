@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script type="module">
+      import {
+        Application,
+        Controller,
+      } from "https://unpkg.com/@hotwired/stimulus/dist/stimulus.js";
+      window.Stimulus = Application.start();
+
+      Stimulus.register(
+        "index",
+        class extends Controller {
+          static targets = ["j", "l"];
+          display() {
+            this.lTarget.innerHTML = this.jTarget.value;
+            console.log(this.jTarget.value);
+          }
+
+          deleteElement() {
+            const element = event.target.parentElement;
+            element.remove();
+          }
+          createElement() {
+            const element = document.createElement("div");
+            element.className = "dev-1";
+            element.id = "dev-1";
+            const checkbox = document.createElement("input");
+            checkbox.setAttribute("class", "form-check-input mx-3");
+            checkbox.setAttribute("type", "checkbox");
+            const description = document.createElement("input");
+            const editButton = document.createElement("button");
+            const deletButton = document.createElement("button");
+            description.value = this.jTarget.value;
+            editButton.innerText = "Edit";
+            deletButton.innerText = "Delete";
+            editButton.setAttribute("class", "btn btn-primary mx-3");
+            editButton.setAttribute("data-action", "click->index#editElement");
+            deletButton.setAttribute(
+              "data-action",
+              "click->index#deleteElement"
+            );
+            deletButton.setAttribute("class", "btn btn-danger mx-3");
+            description.setAttribute(
+              "style",
+              "pointer-events: none; border: none;"
+            );
+            element.appendChild(checkbox);
+            element.appendChild(description);
+            element.appendChild(editButton);
+            element.appendChild(deletButton);
+            element.setAttribute("style", "margin-top: 10px;");
+            document.getElementById("main-div").appendChild(element);
+            this.jTarget.value = " ";
+          }
+
+          greet() {
+            
+            if (!event.target.value.trim() == "") {
+              if (event.key === "Enter") {
+                this.createElement();
+              }
+            }
+          }
+
+          updateElement() {
+            let textElement = event.target.parentElement.children[1];
+            textElement.setAttribute(
+              "style",
+              "pointer-events: none; border: none"
+            );
+            const editButton = document.createElement("button");
+            editButton.innerText = "Edit";
+            editButton.setAttribute("class", "btn btn-primary mx-3");
+            editButton.setAttribute("data-action", "click->index#editElement");
+            let parent = event.target.parentElement;
+            parent.replaceChild(editButton, event.target);
+          }
+
+          editElement() {
+            let textElement = event.target.parentElement.children[1];
+            textElement.setAttribute("style", "pointer-events: active;");
+            let parent = event.target.parentElement;
+            let updateButton = document.createElement("button");
+            updateButton.innerText = "Update";
+            updateButton.setAttribute(
+              "data-action",
+              "click->index#updateElement"
+            );
+            updateButton.setAttribute("class", "btn btn-warning mx-3");
+            parent.replaceChild(updateButton, event.target);
+          }
+        }
+      );
+    </script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div
+      class="container d-flex flex-column align-items-center justify-content-center"
+      id="main-div"
+      data-controller="index"
+    >
+      <h2>To Do List</h2>
+      <input
+        data-index-target="j"
+        data-action="keyup->index#greet"
+        type="text"
+        id="main-input"
+        class="form-control"
+        placeholder="Whats on your Mind...."
+      />
+      <div data-index-target="l"></div>
+    </div>
+  </body>
+</html>
