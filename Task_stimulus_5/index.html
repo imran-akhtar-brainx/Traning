@@ -13,25 +13,30 @@
         "index",
         class extends Controller {
           static targets = ["j", "l"];
-          display() {
-            this.lTarget.innerHTML = this.jTarget.value;
-            console.log(this.jTarget.value);
-          }
 
           deleteElement() {
-            const element = event.target.parentElement;
-            element.remove();
+            event.target.parentElement.remove();
           }
+
           createElement() {
             const element = document.createElement("div");
-            element.className = "dev-1";
-            element.id = "dev-1";
             const checkbox = document.createElement("input");
-            checkbox.setAttribute("class", "form-check-input mx-3");
+            checkbox.classList.add(["form-check-input","mx-4"]);
             checkbox.setAttribute("type", "checkbox");
             const description = document.createElement("input");
             const editButton = document.createElement("button");
+            const updateButton = document.createElement("button");
             const deletButton = document.createElement("button");
+            updateButton.innerText = "Update";
+            updateButton.setAttribute("class", "btn btn-warning mx-3");
+            updateButton.setAttribute(
+              "data-action",
+              "click->index#updateElement"
+            );
+            updateButton.setAttribute("id", "update");
+            editButton.setAttribute("id", "edit");
+            description.setAttribute("id", "description");
+            updateButton.style.display = "none";
             description.value = this.jTarget.value;
             editButton.innerText = "Edit";
             deletButton.innerText = "Delete";
@@ -48,15 +53,16 @@
             );
             element.appendChild(checkbox);
             element.appendChild(description);
+            element.appendChild(updateButton);
             element.appendChild(editButton);
             element.appendChild(deletButton);
             element.setAttribute("style", "margin-top: 10px;");
+            element.classList.add(["d-flex"]);
             document.getElementById("main-div").appendChild(element);
             this.jTarget.value = " ";
           }
 
           greet() {
-            
             if (!event.target.value.trim() == "") {
               if (event.key === "Enter") {
                 this.createElement();
@@ -65,31 +71,27 @@
           }
 
           updateElement() {
-            let textElement = event.target.parentElement.children[1];
+            let textElement =
+              event.target.parentElement.children["description"];
             textElement.setAttribute(
               "style",
               "pointer-events: none; border: none"
             );
-            const editButton = document.createElement("button");
-            editButton.innerText = "Edit";
-            editButton.setAttribute("class", "btn btn-primary mx-3");
-            editButton.setAttribute("data-action", "click->index#editElement");
-            let parent = event.target.parentElement;
-            parent.replaceChild(editButton, event.target);
+            event.target.parentElement.children["update"].style.display =
+              "none";
+            event.target.parentElement.children["edit"].style.display = "block";
           }
 
           editElement() {
-            let textElement = event.target.parentElement.children[1];
-            textElement.setAttribute("style", "pointer-events: active;");
-            let parent = event.target.parentElement;
-            let updateButton = document.createElement("button");
-            updateButton.innerText = "Update";
-            updateButton.setAttribute(
-              "data-action",
-              "click->index#updateElement"
+            let description =
+              event.target.parentElement.children["description"];
+            description.setAttribute(
+              "style",
+              "pointer-events: active; border: solid 1px;"
             );
-            updateButton.setAttribute("class", "btn btn-warning mx-3");
-            parent.replaceChild(updateButton, event.target);
+            event.target.parentElement.children["update"].style.display =
+              "block";
+            event.target.parentElement.children["edit"].style.display = "none";
           }
         }
       );
@@ -116,7 +118,6 @@
         class="form-control"
         placeholder="Whats on your Mind...."
       />
-      <div data-index-target="l"></div>
     </div>
   </body>
 </html>
